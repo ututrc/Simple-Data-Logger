@@ -1,0 +1,33 @@
+<template name="LiveSubjectsView">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Live Subjects</h3>
+        </div>
+        <div class="panel-body">
+          <!--{{#each liveSubjects}}
+            {{> LiveSubjectPreview}}
+          {{/each}}-->
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="LiveSubjectPreview">
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{livestamp ago}}</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        {{#each previewData}}
+            <li>{{name}}: {{value}}</li>
+        {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,18 @@
+<template name="StreamPrototypeView">
+    <div class="row">
+      <div class="col-md-8">
+        <h3>{{name}}</h3>
+        <ul>
+          <li>ID: {{_id}}</li>
+        </ul>
+      </div>
+      <div class="col-md-4 text-right">
+        <button class="remove-stream btn btn-danger btn-sm">Delete <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+      </div>
+    </div>
+
+    {{#with this}}
+      {{> StreamPrototypeFieldListView}}
+    {{/with}}
+
+</template>

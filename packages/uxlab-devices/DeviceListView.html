@@ -1,0 +1,26 @@
+
+<template name="DeviceListView">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Available devices</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="list-group">
+          {{#each devices}}
+            {{> DeviceListItem}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+</template>
+
+<template name="DeviceListItem">
+      <a href="devices/{{_id}}" class="list-group-item">
+          {{name}}
+      </a>
+</template>

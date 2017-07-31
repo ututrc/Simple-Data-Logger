@@ -1,0 +1,16 @@
+<template name="StreamInstanceView">
+  <div class="row">
+    <div class="col-md-8">
+      <h3>{{name}}</h3>
+      <ul>
+        <li>Public key: {{_id}}</li>
+        <li>Private key: {{privateKey}}</li>
+      </ul>
+      <button type="button" class="btn btn-primary" id="export">Export</button>
+    </div>
+  </div>
+
+  {{#with this}}
+    {{> StreamDataTableView}}
+  {{/with}}
+</template>

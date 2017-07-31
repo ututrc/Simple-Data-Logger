@@ -1,0 +1,25 @@
+<template name="DeviceView">
+    <div class="row">
+      <div class="col-md-8">
+        <h3>{{> editableText collection="devices" field="name" acceptEmpty=false}}</h3>
+        <ul>
+          <li>Device ID: {{deviceid}}</li>
+          <li>System ID: {{_id}}</li>
+          <li>{{> DeviceEditForm}}</li>
+        </ul>
+
+      </div>
+      <div class="col-md-4 text-right">
+        <button class="remove-device btn btn-danger btn-sm">Delete <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+      </div>
+    </div>
+</template>
+
+<template name="DeviceEditForm">
+  {{#autoForm collection="UXLab.data.devices" doc=this id="DeviceEditForm" type="update" autosave=true}}
+    <fieldset>
+      {{> afQuickField name='promote'}}
+    </fieldset>
+    <!--<button type="submit" class="btn btn-primary">Update</button>-->
+  {{/autoForm}}
+</template>

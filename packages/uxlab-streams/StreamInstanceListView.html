@@ -1,0 +1,29 @@
+<template name="StreamInstanceListView">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Available streams</h3>
+    </div>
+    <div class="panel-body">
+
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-group">
+            {{#each subjectStreams}}
+              {{> StreamInstanceListItem}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<template name="StreamInstanceListItem">
+  <a href="/subjects/{{subject}}/streams/{{_id}}" class="list-group-item">
+    {{name}}
+    ({{#each fields}}
+      <em>{{this}}</em>
+    {{/each}})
+  </a>
+</template>

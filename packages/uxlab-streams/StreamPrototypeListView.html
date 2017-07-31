@@ -1,0 +1,40 @@
+<template name="StreamPrototypeListView">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Streams prototypes</h3>
+    </div>
+    <div class="panel-body">
+
+      <div class="row">
+        <div class="col-md-4 col-md-offset-8 create-stream">
+          <div class="input-group">
+            <input type="text" class="form-control stream-name" placeholder="Stream name">
+            <span class="input-group-btn">
+              <button class="create-stream btn btn-default" type="button">Create <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+            </span>
+          </div><!-- /input-group -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-group">
+            {{#each prototypeStreams}}
+              {{> StreamPrototypeListItem}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<template name="StreamPrototypeListItem">
+  <a href="/applications/{{application}}/streams/{{_id}}" class="list-group-item">
+    {{name}}
+    ({{#each fields}}
+      <em>{{name}}</em>
+    {{/each}})
+  </a>
+</template>

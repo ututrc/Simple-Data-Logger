@@ -1,0 +1,86 @@
+<head>
+  <title>uxlab</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<template name="GlobalView">
+  {{> mainNavigation}}
+  <div class="container-fluid">
+    {{> yield}}
+  </div>
+</template>
+
+<template name="mainNavigation">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          {{#if currentUser}}
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          {{/if}}
+        </button>
+        <a class="navbar-brand" href="/">UXLab</a>
+      </div>
+
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home <span class="sr-only">(current)</span></a></li>
+          {{#if currentUser}}
+            {{#if currentApplication}}
+              <li><a href="/applications">Applications</a></li>
+            {{/if}}
+            <li><a href="/devices">Devices</a></li>
+            {{#if currentApplication}}
+              <li><a href="/subjects">Subjects</a></li>
+            {{/if}}
+            {{#if currentApplication}}
+              <li><a href="/examine">Examine</a></li>
+            {{/if}}
+          {{/if}}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {{#if currentUser}}
+            <li><a href="/settings">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+          {{/if}}
+          {{> loginButtons}}
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</template>
+
+<template name="HomeView">
+    {{#if currentUser}}
+      {{#unless currentApplication}}
+        {{> ApplicationListView}}
+      {{/unless}}
+      {{#if currentApplication}}
+        {{> LiveSubjectsView}}
+      {{/if}}
+    {{/if}}
+</template>

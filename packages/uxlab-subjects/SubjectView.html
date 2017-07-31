@@ -1,0 +1,37 @@
+<template name="SubjectView">
+    <div class="row">
+      <div class="col-md-8">
+        <h3>{{starttime}}</h3>
+        <ul>
+          <li>ID: {{_id}}</li>
+          <li>Start time: {{starttime}}</li>
+          <li>Device: {{deviceName}}</li>
+        </ul>
+
+      </div>
+      <div class="col-md-4 text-right">
+        <button class="remove-subject btn btn-danger btn-sm">Delete <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        {{> SubjectDescription}}
+      </div>
+    </div>
+    {{> StreamInstanceListView}}
+</template>
+
+<template name="SubjectDescription">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Description & Comments</h3>
+    </div>
+    <div class="panel-body">
+      {{#if description}}
+        {{> editableText collection="subjects" field="description" wysiwyg=true toolbarPosition="top" showToolbar=true acceptEmpty=false}}
+      {{/if}}
+    </div>
+  </div>
+
+</template>

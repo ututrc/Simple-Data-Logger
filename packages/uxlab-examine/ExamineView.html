@@ -1,0 +1,98 @@
+<template name="ExamineView">
+  <div class="row">
+    <h1>DOES NOT WORK, DON'T TOUCH</h1>
+    <div class="col-md-6">
+      {{>SubjectFilter}}
+    </div>
+    <div class="col-md-6">
+      {{>DataFilter}}
+    </div>
+  </div>
+<div class="row">
+  <div class="col-md-12">
+    <button type="button" class="btn btn-primary" id="search">Search</button>
+  </div>
+</div>
+{{>FilteringResults}}
+</template>
+
+<template name="SubjectFilter">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Filter subjects</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#daterange" aria-controls="daterange" role="tab" data-toggle="tab">Time range</a></li>
+              <li role="presentation"><a href="#devices" aria-controls="devices" role="tab" data-toggle="tab">Devices</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="daterange">Datepicker</div>
+              <div role="tabpanel" class="tab-pane" id="devices">Device list</div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="DataFilter">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Filter data</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#streams" aria-controls="streams" role="tab" data-toggle="tab">Streams</a></li>
+            <li role="presentation"><a href="#fields" aria-controls="fields" role="tab" data-toggle="tab">Fields</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="streams">Streams</div>
+            <div role="tabpanel" class="tab-pane" id="fields">Fields</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="FilteringResults">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Results</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">Summary</a></li>
+            <li role="presentation"><a href="#export" aria-controls="export" role="tab" data-toggle="tab">Export</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="summary">Summary</div>
+            <div role="tabpanel" class="tab-pane" id="export">Export</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>
